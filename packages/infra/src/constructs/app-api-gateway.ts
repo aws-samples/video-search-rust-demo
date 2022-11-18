@@ -16,29 +16,24 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-pub fn content_url_opt(key: &Option<String>) -> askama::Result<String> {
-    let host = dotenv::var("CONTENT_HOST").expect("CONTENT_HOST must be set.");
-    if let Some(s) = key {
-        Ok(format!("//{}/{}", host, s))
-    } else {
-        // default thumbnail
-        Ok("".to_string())
-    }
+import { Construct } from "constructs";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
+import { HttpApi } from "@aws-cdk/aws-apigatewayv2-alpha";
+import { HttpLambdaIntegration } from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
+
+export interface AppApiGatewayProps {
+  readonly handler: IFunction;
 }
 
-pub fn content_url(key: &str) -> askama::Result<String> {
-    let host = dotenv::var("CONTENT_HOST").expect("CONTENT_HOST must be set.");
-    Ok(format!("//{}/{}", host, key))
-}
+export class AppApiGateway extends Construct {
+  public readonly httpApi: HttpApi;
+  constructor(scope: Construct, id: string, props: AppApiGatewayProps) {
+    super(scope, id);
 
-pub fn second_format(seconds: &u32) -> askama::Result<String> {
+    const { handler } = props;
 
-    if seconds == &0 {
-        return Ok("".to_string());
-    }
-
-    let mm = seconds / 60;
-    let ss = seconds - (mm * 60);
-
-    Ok(format!("{}:{:02}", mm, ss))
+    this.httpApi = new HttpApi(this, "HttpApi", {
+      defaultIntegration: new HttpLambdaIntegration("AppIntegration", handler),
+    });
+  }
 }

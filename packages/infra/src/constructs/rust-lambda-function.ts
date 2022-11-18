@@ -16,29 +16,42 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-pub fn content_url_opt(key: &Option<String>) -> askama::Result<String> {
-    let host = dotenv::var("CONTENT_HOST").expect("CONTENT_HOST must be set.");
-    if let Some(s) = key {
-        Ok(format!("//{}/{}", host, s))
-    } else {
-        // default thumbnail
-        Ok("".to_string())
-    }
+import { Construct } from "constructs";
+import {
+  Architecture,
+  Code,
+  Runtime,
+  Function,
+  ILayerVersion,
+} from "aws-cdk-lib/aws-lambda";
+import { Duration } from "aws-cdk-lib";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
+import { FileSystem } from "aws-cdk-lib/aws-lambda";
+
+export interface RustLambdaFunctionProps {
+  functionName?: string;
+  code: Code;
+  architecture: Architecture;
+  vpc?: IVpc;
+  timeout?: Duration;
+  readonly environment?: {
+    [key: string]: string;
+  };
+  filesystem?: FileSystem;
+  memorySize?: number;
+  layers?: ILayerVersion[];
 }
 
-pub fn content_url(key: &str) -> askama::Result<String> {
-    let host = dotenv::var("CONTENT_HOST").expect("CONTENT_HOST must be set.");
-    Ok(format!("//{}/{}", host, key))
-}
+export class RustLambdaFunction extends Construct {
+  public readonly func: Function;
 
-pub fn second_format(seconds: &u32) -> askama::Result<String> {
+  constructor(scope: Construct, id: string, props: RustLambdaFunctionProps) {
+    super(scope, id);
 
-    if seconds == &0 {
-        return Ok("".to_string());
-    }
-
-    let mm = seconds / 60;
-    let ss = seconds - (mm * 60);
-
-    Ok(format!("{}:{:02}", mm, ss))
+    this.func = new Function(this, `${id}Function`, {
+      runtime: Runtime.PROVIDED_AL2,
+      handler: "bootstrap",
+      ...props,
+    });
+  }
 }

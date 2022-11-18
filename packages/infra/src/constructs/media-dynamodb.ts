@@ -16,29 +16,21 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-pub fn content_url_opt(key: &Option<String>) -> askama::Result<String> {
-    let host = dotenv::var("CONTENT_HOST").expect("CONTENT_HOST must be set.");
-    if let Some(s) = key {
-        Ok(format!("//{}/{}", host, s))
-    } else {
-        // default thumbnail
-        Ok("".to_string())
+import {Construct} from "constructs";
+import {AttributeType, BillingMode, Table} from "aws-cdk-lib/aws-dynamodb";
+
+export class MediaDynamodb extends Construct {
+    public readonly table: Table;
+
+    constructor(scope: Construct, id: string) {
+        super(scope, id);
+
+        this.table = new Table(this, "MediaTable", {
+            partitionKey: {
+                name: "id",
+                type: AttributeType.STRING,
+            },
+            billingMode: BillingMode.PAY_PER_REQUEST,
+        });
     }
-}
-
-pub fn content_url(key: &str) -> askama::Result<String> {
-    let host = dotenv::var("CONTENT_HOST").expect("CONTENT_HOST must be set.");
-    Ok(format!("//{}/{}", host, key))
-}
-
-pub fn second_format(seconds: &u32) -> askama::Result<String> {
-
-    if seconds == &0 {
-        return Ok("".to_string());
-    }
-
-    let mm = seconds / 60;
-    let ss = seconds - (mm * 60);
-
-    Ok(format!("{}:{:02}", mm, ss))
 }

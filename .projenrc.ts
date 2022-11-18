@@ -9,7 +9,7 @@ const project = new nx_monorepo.NxMonorepoProject({
   description: "This repo is a sample video search app using AWS services.",
   deps: [],
   license: "MIT",
-  copyrightOwner: "drskur<drskur@amazon.com>",
+  copyrightOwner: "Amazon.com, Inc",
   tsconfig: {
     compilerOptions: {
       rootDir: undefined,
@@ -25,7 +25,7 @@ const pipelineProject = new PDKPipelineTsProject({
   name: "infra",
   cdkVersion: "2.1.0",
   license: "MIT",
-  copyrightOwner: "drskur<drskur@amazon.com>",
+  copyrightOwner: "Amazon.com, Inc",
   deps: [
     "@aws-cdk/aws-apigatewayv2-alpha",
     "@aws-cdk/aws-apigatewayv2-integrations-alpha",

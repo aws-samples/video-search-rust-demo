@@ -16,14 +16,14 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import { Duration } from "aws-cdk-lib";
+import { IDistribution } from "aws-cdk-lib/aws-cloudfront";
+import { ITable } from "aws-cdk-lib/aws-dynamodb";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
+import { Architecture, Code, IFunction } from "aws-cdk-lib/aws-lambda";
+import { IQueue } from "aws-cdk-lib/aws-sqs";
 import { Construct } from "constructs";
 import { RustLambdaFunction } from "./rust-lambda-function";
-import { Architecture, Code, IFunction } from "aws-cdk-lib/aws-lambda";
-import { Duration } from "aws-cdk-lib";
-import { IVpc } from "aws-cdk-lib/aws-ec2";
-import { ITable } from "aws-cdk-lib/aws-dynamodb";
-import { IQueue } from "aws-cdk-lib/aws-sqs";
-import { IDistribution } from "aws-cdk-lib/aws-cloudfront";
 
 export interface AppFunctionProps {
   readonly vpc: IVpc;

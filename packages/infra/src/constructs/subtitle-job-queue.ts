@@ -16,8 +16,8 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
 import { Queue } from "aws-cdk-lib/aws-sqs";
+import { Construct } from "constructs";
 
 export class SubtitleJobQueue extends Construct {
   public readonly queue: Queue;

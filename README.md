@@ -1,6 +1,7 @@
 # Video Search
 
 This repo is a sample video search app using AWS services.
+You can check the demo on [this link](https://gv3r4zoblg.execute-api.ap-northeast-2.amazonaws.com/).
 
 ## Features
 
@@ -42,10 +43,10 @@ This repo is a sample video search app using AWS services.
 $ npm i aws-cdk
 
 # bootstrap cdk
-$ cdk bootstrap
+$ cdk bootstrap --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://<account>/<region>
 
 # if you want to use aws credential profile
-$ cdk bootstrap --profile yourprofile
+$ cdk bootstrap --profile <your profile> --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://<account>/<region>
 ```
 
 ## Deploy
@@ -55,17 +56,27 @@ This repo uses ffmpeg for extracting thumbnail image from source video. If you w
 I prepared the script.
 ```bash
 $ nx run infra:ffmpeg
+
+# The binary must to commit and push codecommit repository
+$ git add -A
+$ git commit -m "fix: add ffmpeg binary"
 ```
 
 ```bash
-# on packages/infra
-$ yarn
+# build infra packages
+# it depends rust packages, So you have to prepare rust environment.
+$ nx build infra
 
+# on packages/infra
 # aws credential setup required.
 $ cdk deploy PipelineStack
 
+# or use profile
+$ cdk deploy PipelineStack --profile <your profile>
+
 # After deploying the stack, then the CodeCommit repo will be created.
 # If you want to deploy this app, you have to push this repo to the CodeCommit repo.
+# If you use 
 $ git remote add codecommit <CodeCommit-Repo>
 $ git push codecommit main
 ```

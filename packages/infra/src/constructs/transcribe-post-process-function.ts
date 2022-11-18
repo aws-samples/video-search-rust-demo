@@ -16,15 +16,15 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
-import { RustLambdaFunction } from "./rust-lambda-function";
-import { Architecture, Code } from "aws-cdk-lib/aws-lambda";
 import { Duration } from "aws-cdk-lib";
-import { IVpc } from "aws-cdk-lib/aws-ec2";
-import { IQueue } from "aws-cdk-lib/aws-sqs";
 import { ITable } from "aws-cdk-lib/aws-dynamodb";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
 import { Rule } from "aws-cdk-lib/aws-events";
 import { LambdaFunction } from "aws-cdk-lib/aws-events-targets";
+import { Architecture, Code } from "aws-cdk-lib/aws-lambda";
+import { IQueue } from "aws-cdk-lib/aws-sqs";
+import { Construct } from "constructs";
+import { RustLambdaFunction } from "./rust-lambda-function";
 
 export interface TranscribePostProcessFunctionProps {
   readonly vpc: IVpc;

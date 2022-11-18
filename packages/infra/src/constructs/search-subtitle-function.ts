@@ -16,12 +16,12 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
-import { IVpc } from "aws-cdk-lib/aws-ec2";
-import { RustLambdaFunction } from "./rust-lambda-function";
-import { Architecture, Code, FileSystem } from "aws-cdk-lib/aws-lambda";
 import { Duration } from "aws-cdk-lib";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
 import { IAccessPoint } from "aws-cdk-lib/aws-efs";
+import { Architecture, Code, FileSystem } from "aws-cdk-lib/aws-lambda";
+import { Construct } from "constructs";
+import { RustLambdaFunction } from "./rust-lambda-function";
 
 export interface SearchSubtitleFunctionProps {
   readonly vpc: IVpc;

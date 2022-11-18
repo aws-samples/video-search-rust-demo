@@ -16,10 +16,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
-import { IFunction } from "aws-cdk-lib/aws-lambda";
 import { HttpApi } from "@aws-cdk/aws-apigatewayv2-alpha";
 import { HttpLambdaIntegration } from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
+import { Construct } from "constructs";
 
 export interface AppApiGatewayProps {
   readonly handler: IFunction;

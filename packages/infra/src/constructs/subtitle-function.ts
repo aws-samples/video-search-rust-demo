@@ -16,17 +16,17 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import { Duration } from "aws-cdk-lib";
+import { ITable } from "aws-cdk-lib/aws-dynamodb";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
+import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
+import { Architecture, Code } from "aws-cdk-lib/aws-lambda";
+import { SqsEventSource } from "aws-cdk-lib/aws-lambda-event-sources";
+import { IBucket } from "aws-cdk-lib/aws-s3";
+import { ITopic } from "aws-cdk-lib/aws-sns";
+import { IQueue } from "aws-cdk-lib/aws-sqs";
 import { Construct } from "constructs";
 import { RustLambdaFunction } from "./rust-lambda-function";
-import { Architecture, Code } from "aws-cdk-lib/aws-lambda";
-import { Duration } from "aws-cdk-lib";
-import { IVpc } from "aws-cdk-lib/aws-ec2";
-import { ITable } from "aws-cdk-lib/aws-dynamodb";
-import { ITopic } from "aws-cdk-lib/aws-sns";
-import { IBucket } from "aws-cdk-lib/aws-s3";
-import { IQueue } from "aws-cdk-lib/aws-sqs";
-import { SqsEventSource } from "aws-cdk-lib/aws-lambda-event-sources";
-import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
 
 export interface SubtitleFunctionProps {
   vpc: IVpc;

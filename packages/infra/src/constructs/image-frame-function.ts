@@ -16,17 +16,17 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
+import { Duration } from "aws-cdk-lib";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
 import {
   Architecture,
   Code,
   LayerVersion,
   Runtime,
 } from "aws-cdk-lib/aws-lambda";
-import { RustLambdaFunction } from "./rust-lambda-function";
-import { Duration } from "aws-cdk-lib";
-import { IVpc } from "aws-cdk-lib/aws-ec2";
 import { IBucket } from "aws-cdk-lib/aws-s3";
+import { Construct } from "constructs";
+import { RustLambdaFunction } from "./rust-lambda-function";
 
 export interface ImageFrameFunctionProps {
   vpc: IVpc;

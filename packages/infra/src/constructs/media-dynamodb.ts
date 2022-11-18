@@ -16,21 +16,21 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import {Construct} from "constructs";
-import {AttributeType, BillingMode, Table} from "aws-cdk-lib/aws-dynamodb";
+import { AttributeType, BillingMode, Table } from "aws-cdk-lib/aws-dynamodb";
+import { Construct } from "constructs";
 
 export class MediaDynamodb extends Construct {
-    public readonly table: Table;
+  public readonly table: Table;
 
-    constructor(scope: Construct, id: string) {
-        super(scope, id);
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
 
-        this.table = new Table(this, "MediaTable", {
-            partitionKey: {
-                name: "id",
-                type: AttributeType.STRING,
-            },
-            billingMode: BillingMode.PAY_PER_REQUEST,
-        });
-    }
+    this.table = new Table(this, "MediaTable", {
+      partitionKey: {
+        name: "id",
+        type: AttributeType.STRING,
+      },
+      billingMode: BillingMode.PAY_PER_REQUEST,
+    });
+  }
 }

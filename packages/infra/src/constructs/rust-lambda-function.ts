@@ -16,17 +16,17 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
+import { Duration } from "aws-cdk-lib";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
 import {
   Architecture,
   Code,
   Runtime,
   Function,
   ILayerVersion,
+  FileSystem,
 } from "aws-cdk-lib/aws-lambda";
-import { Duration } from "aws-cdk-lib";
-import { IVpc } from "aws-cdk-lib/aws-ec2";
-import { FileSystem } from "aws-cdk-lib/aws-lambda";
+import { Construct } from "constructs";
 
 export interface RustLambdaFunctionProps {
   functionName?: string;

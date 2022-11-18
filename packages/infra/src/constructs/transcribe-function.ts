@@ -16,15 +16,15 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
-import { RustLambdaFunction } from "./rust-lambda-function";
-import { Architecture, Code, IFunction } from "aws-cdk-lib/aws-lambda";
-import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
+import { Duration } from "aws-cdk-lib";
 import { Table } from "aws-cdk-lib/aws-dynamodb";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
+import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
+import { Architecture, Code, IFunction } from "aws-cdk-lib/aws-lambda";
 import { S3EventSource } from "aws-cdk-lib/aws-lambda-event-sources";
 import { Bucket, EventType } from "aws-cdk-lib/aws-s3";
-import { Duration } from "aws-cdk-lib";
-import { IVpc } from "aws-cdk-lib/aws-ec2";
+import { Construct } from "constructs";
+import { RustLambdaFunction } from "./rust-lambda-function";
 
 export interface TranscribeFunctionProps {
   eventSourceBucket: Bucket;

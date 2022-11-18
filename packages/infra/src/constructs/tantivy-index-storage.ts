@@ -16,10 +16,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
-import { AccessPoint, FileSystem, PerformanceMode } from "aws-cdk-lib/aws-efs";
-import { IVpc } from "aws-cdk-lib/aws-ec2";
 import { RemovalPolicy } from "aws-cdk-lib";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
+import { AccessPoint, FileSystem, PerformanceMode } from "aws-cdk-lib/aws-efs";
+import { Construct } from "constructs";
 
 export interface TantivyIndexStorageProps {
   readonly vpc: IVpc;

@@ -18,12 +18,6 @@
 
 import { RemovalPolicy } from "aws-cdk-lib";
 import {
-  BlockPublicAccess,
-  Bucket,
-  BucketEncryption,
-} from "aws-cdk-lib/aws-s3";
-import { Construct } from "constructs";
-import {
   AllowedMethods,
   CachedMethods,
   Distribution,
@@ -31,8 +25,14 @@ import {
   OriginRequestPolicy,
   ResponseHeadersPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
-import { CanonicalUserPrincipal, PolicyStatement } from "aws-cdk-lib/aws-iam";
 import { S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
+import { CanonicalUserPrincipal, PolicyStatement } from "aws-cdk-lib/aws-iam";
+import {
+  BlockPublicAccess,
+  Bucket,
+  BucketEncryption,
+} from "aws-cdk-lib/aws-s3";
+import { Construct } from "constructs";
 
 export class MediaStorage extends Construct {
   public readonly bucket: Bucket;

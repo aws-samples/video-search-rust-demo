@@ -16,10 +16,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
-import { UserPool, UserPoolClient } from "aws-cdk-lib/aws-cognito";
-import { RemovalPolicy } from "aws-cdk-lib";
 import { IdentityPool } from "@aws-cdk/aws-cognito-identitypool-alpha";
+import { RemovalPolicy } from "aws-cdk-lib";
+import { UserPool, UserPoolClient } from "aws-cdk-lib/aws-cognito";
+import { Construct } from "constructs";
 
 export interface AppCognitoProps {
   readonly clientUrls: string[];

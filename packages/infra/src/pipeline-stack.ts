@@ -17,7 +17,11 @@
  */
 
 import { Stack, StackProps } from "aws-cdk-lib";
-import {BuildSpec, ComputeType, LinuxBuildImage} from "aws-cdk-lib/aws-codebuild";
+import {
+  BuildSpec,
+  ComputeType,
+  LinuxBuildImage,
+} from "aws-cdk-lib/aws-codebuild";
 import { PDKPipeline } from "aws-prototyping-sdk/pipeline";
 import { Construct } from "constructs";
 
@@ -43,17 +47,16 @@ export class PipelineStack extends Stack {
           version: "0.2",
           phases: {
             install: {
-              "commands": [
+              commands: [
                 "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
                 ". $HOME/.cargo/env",
                 "pip3 install cargo-lambda",
-              ]
-            }
-          }
-        })
+              ],
+            },
+          },
+        }),
       },
-      synth: {}
+      synth: {},
     });
-
   }
 }

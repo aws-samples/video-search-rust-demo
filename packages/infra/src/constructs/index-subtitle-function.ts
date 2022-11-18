@@ -16,14 +16,14 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Construct } from "constructs";
-import { IVpc } from "aws-cdk-lib/aws-ec2";
-import { RustLambdaFunction } from "./rust-lambda-function";
-import { Architecture, Code, FileSystem } from "aws-cdk-lib/aws-lambda";
 import { Duration } from "aws-cdk-lib";
+import { IVpc } from "aws-cdk-lib/aws-ec2";
 import { IAccessPoint } from "aws-cdk-lib/aws-efs";
-import { ITopic } from "aws-cdk-lib/aws-sns";
+import { Architecture, Code, FileSystem } from "aws-cdk-lib/aws-lambda";
 import { SnsEventSource } from "aws-cdk-lib/aws-lambda-event-sources";
+import { ITopic } from "aws-cdk-lib/aws-sns";
+import { Construct } from "constructs";
+import { RustLambdaFunction } from "./rust-lambda-function";
 
 export interface IndexSubtitleFunctionProps {
   readonly vpc: IVpc;

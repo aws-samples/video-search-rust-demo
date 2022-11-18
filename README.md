@@ -8,6 +8,12 @@ This repo is a sample video search app using AWS services.
 - Translate subtitle and generate subtitle.
 - Search subtitle and jump to selected part of the video.
 
+## Requirements
+
+- [Rust](https://www.rust-lang.org/) 1.56.0 or higher
+- [cargo-lambda](https://github.com/cargo-lambda/cargo-lambda)
+- [Zig](https://ziglang.org/) for cross-compilation (cargo-lambda will prompt you to install it if it's missing in your host system)
+
 ## Screenshots
 ![List](docs/list.png)
 ![Detail En](docs/detail_en.png)
@@ -44,12 +50,16 @@ $ cdk bootstrap --profile yourprofile
 
 ## Deploy
 
+### FFmpeg
+This repo uses ffmpeg for extracting thumbnail image from source video. If you want to use this, you have to get the binary from the web.
+I prepared the script.
 ```bash
-# build lambda package.
-$ nx run lambda:build
+$ nx run infra:ffmpeg
+```
 
+```bash
 # on packages/infra
-$ npm install
+$ yarn
 
 # aws credential setup required.
 $ cdk deploy PipelineStack

@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Duration } from "aws-cdk-lib";
+import { Duration, Size } from "aws-cdk-lib";
 import { IVpc } from "aws-cdk-lib/aws-ec2";
 import {
   Architecture,
@@ -52,7 +52,8 @@ export class ImageFrameFunction extends Construct {
       vpc,
       code: Code.fromAsset("../lambda/.dist/image_frame/"),
       architecture: Architecture.ARM_64,
-      timeout: Duration.seconds(60),
+      timeout: Duration.minutes(10),
+      ephemeralStorageSize: Size.gibibytes(2),
       layers: [this.ffmpegLayer],
       environment: {
         BUCKET_NAME: bucket.bucketName,

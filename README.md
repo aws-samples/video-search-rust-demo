@@ -1,7 +1,7 @@
 # Video Search
 
 This repo is a sample video search app using AWS services.
-You can check the demo on [this link](https://gv3r4zoblg.execute-api.ap-northeast-2.amazonaws.com/).
+You can check the demo on [this link](https://ckvt6iam3h.execute-api.us-west-2.amazonaws.com/).
 
 ## Features
 

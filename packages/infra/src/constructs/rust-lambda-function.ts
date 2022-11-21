@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Duration } from "aws-cdk-lib";
+import { Duration, Size } from "aws-cdk-lib";
 import { IVpc } from "aws-cdk-lib/aws-ec2";
 import {
   Architecture,
@@ -40,6 +40,7 @@ export interface RustLambdaFunctionProps {
   filesystem?: FileSystem;
   memorySize?: number;
   layers?: ILayerVersion[];
+  ephemeralStorageSize?: Size;
 }
 
 export class RustLambdaFunction extends Construct {

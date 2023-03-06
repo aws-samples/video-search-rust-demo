@@ -1,0 +1,1094 @@
+{
+  "version": "5.1",
+  "deps": {
+    "aws-cdk-lib": "^2.49.0",
+    "cdk-nag": "^2.19.8",
+    "constructs": "^10.1.145",
+    "@nrwl/cli": "^15.8.5",
+    "@nrwl/workspace": "^15.8.5",
+    "@types/node": "^14",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "aws-prototyping-sdk": "^0.12.4",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-node": "^0.3.7",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "json-schema": "^0.4.0",
+    "npm-check-updates": "^16.7.10",
+    "prettier": "^2.8.4",
+    "projen": "^0.65.6",
+    "syncpack": "^9.8.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "lockFileHash": "n/a",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "./.nx/plugins/nx-monorepo-plugin.js"
+    }
+  ],
+  "nodes": {
+    "lambda": {
+      "name": "lambda",
+      "type": "lib",
+      "data": {
+        "root": "packages/lambda",
+        "sourceRoot": "packages/lambda",
+        "projectType": "library",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build",
+              {
+                "target": "build",
+                "projects": "dependencies"
+              }
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "package": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "package"
+            }
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            }
+          },
+          "post-compile": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "post-compile"
+            }
+          },
+          "compile": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "compile"
+            }
+          },
+          "pre-compile": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "pre-compile"
+            }
+          },
+          "eject": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "eject"
+            }
+          },
+          "default": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "default"
+            }
+          }
+        },
+        "implicitDependencies": [],
+        "tags": [],
+        "files": [
+          {
+            "file": "packages/lambda/.gitignore",
+            "hash": "3929391232324286244"
+          },
+          {
+            "file": "packages/lambda/.projen/files.json",
+            "hash": "12388822972463615085"
+          },
+          {
+            "file": "packages/lambda/.projen/tasks.json",
+            "hash": "6601169992526420022"
+          },
+          {
+            "file": "packages/lambda/Cargo.lock",
+            "hash": "9441393875906430789"
+          },
+          {
+            "file": "packages/lambda/Cargo.toml",
+            "hash": "12737364395803085382"
+          },
+          {
+            "file": "packages/lambda/Makefile",
+            "hash": "13164244079428681618"
+          },
+          {
+            "file": "packages/lambda/package.json",
+            "hash": "12285034088457703716"
+          },
+          {
+            "file": "packages/lambda/src/cmd/image_frame.rs",
+            "hash": "6476555293118570794"
+          },
+          {
+            "file": "packages/lambda/src/cmd/index_subtitle.rs",
+            "hash": "4994644667566362192"
+          },
+          {
+            "file": "packages/lambda/src/cmd/search_subtitle.rs",
+            "hash": "13535845732216813573"
+          },
+          {
+            "file": "packages/lambda/src/cmd/subtitle.rs",
+            "hash": "14044182353031989425"
+          },
+          {
+            "file": "packages/lambda/src/cmd/transcribe_post_process.rs",
+            "hash": "18354508927619458115"
+          },
+          {
+            "file": "packages/lambda/src/cmd/transcribe.rs",
+            "hash": "15245345097963639572"
+          },
+          {
+            "file": "packages/lambda/src/lib/index.rs",
+            "hash": "3637195062614444443"
+          },
+          {
+            "file": "packages/lambda/src/lib/lib.rs",
+            "hash": "5083760312260070281"
+          },
+          {
+            "file": "packages/lambda/src/lib/subtitle.rs",
+            "hash": "14705280747132254199"
+          },
+          {
+            "file": "packages/lambda/src/lib/tantivy.rs",
+            "hash": "11825430766572241935"
+          }
+        ]
+      }
+    },
+    "infra": {
+      "name": "infra",
+      "type": "lib",
+      "data": {
+        "root": "packages/infra",
+        "sourceRoot": "packages/infra",
+        "projectType": "library",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build",
+              {
+                "target": "build",
+                "projects": "dependencies"
+              }
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "bundle": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "bundle"
+            }
+          },
+          "clobber": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "clobber"
+            }
+          },
+          "compile": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "compile"
+            }
+          },
+          "default": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "default"
+            }
+          },
+          "deploy": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "deploy"
+            }
+          },
+          "destroy": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "destroy"
+            }
+          },
+          "diff": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "diff"
+            }
+          },
+          "eject": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "eject"
+            }
+          },
+          "eslint": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "eslint"
+            }
+          },
+          "ffmpeg": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "ffmpeg"
+            }
+          },
+          "package": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "package"
+            }
+          },
+          "post-compile": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "post-compile"
+            }
+          },
+          "post-upgrade": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "post-upgrade"
+            }
+          },
+          "pre-compile": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "pre-compile"
+            }
+          },
+          "synth": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "synth"
+            }
+          },
+          "synth:silent": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "synth:silent"
+            }
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            }
+          },
+          "test:watch": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:watch"
+            }
+          },
+          "upgrade": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "upgrade"
+            }
+          },
+          "watch": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "watch"
+            }
+          },
+          "projen": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "projen"
+            }
+          }
+        },
+        "implicitDependencies": [],
+        "tags": [],
+        "files": [
+          {
+            "file": "packages/infra/.eslintrc.json",
+            "hash": "12865661954430246646"
+          },
+          {
+            "file": "packages/infra/.gitattributes",
+            "hash": "2653369839307375999"
+          },
+          {
+            "file": "packages/infra/.gitignore",
+            "hash": "7729855560443031860"
+          },
+          {
+            "file": "packages/infra/.npmignore",
+            "hash": "7575626074720855443"
+          },
+          {
+            "file": "packages/infra/.prettierignore",
+            "hash": "8471394299500185529"
+          },
+          {
+            "file": "packages/infra/.prettierrc.json",
+            "hash": "3819844138542590413"
+          },
+          {
+            "file": "packages/infra/.projen/deps.json",
+            "hash": "10732833931974994974"
+          },
+          {
+            "file": "packages/infra/.projen/files.json",
+            "hash": "16650382488021463062"
+          },
+          {
+            "file": "packages/infra/.projen/tasks.json",
+            "hash": "16773886164620892992"
+          },
+          {
+            "file": "packages/infra/cdk.context.json",
+            "hash": "13550682272783090352"
+          },
+          {
+            "file": "packages/infra/cdk.json",
+            "hash": "3169123678798088426"
+          },
+          {
+            "file": "packages/infra/layers/ffmpeg/Makefile",
+            "hash": "17647566174348321621"
+          },
+          {
+            "file": "packages/infra/LICENSE",
+            "hash": "12748720049681867757"
+          },
+          {
+            "file": "packages/infra/package.json",
+            "hash": "8399816556077276068",
+            "dependencies": [
+              {
+                "source": "infra",
+                "target": "npm:aws-cdk-lib",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:aws-prototyping-sdk",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:cdk-nag",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:constructs",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:@types/node",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:@typescript-eslint/eslint-plugin",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:@typescript-eslint/parser",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:eslint",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:eslint-config-prettier",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:eslint-import-resolver-node",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:eslint-import-resolver-typescript",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:eslint-plugin-import",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:eslint-plugin-prettier",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:json-schema",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:npm-check-updates",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:prettier",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:projen",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:ts-node",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:typescript",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/infra/README.md",
+            "hash": "5136528320838918118"
+          },
+          {
+            "file": "packages/infra/src/application-stack.ts",
+            "hash": "9096136684155130637",
+            "dependencies": [
+              {
+                "source": "infra",
+                "target": "npm:aws-cdk-lib",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:constructs",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/infra/src/application-stage.ts",
+            "hash": "3426348415864269842"
+          },
+          {
+            "file": "packages/infra/src/constructs/app-api-gateway.ts",
+            "hash": "11718332998929885255",
+            "dependencies": [
+              {
+                "source": "infra",
+                "target": "npm:@aws-cdk/aws-apigatewayv2-alpha",
+                "type": "static"
+              },
+              {
+                "source": "infra",
+                "target": "npm:@aws-cdk/aws-apigatewayv2-integrations-alpha",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/infra/src/constructs/app-cognito.ts",
+            "hash": "9531237515454373291",
+            "dependencies": [
+              {
+                "source": "infra",
+                "target": "npm:@aws-cdk/aws-cognito-identitypool-alpha",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/infra/src/constructs/app-function.ts",
+            "hash": "2602598733595816718"
+          },
+          {
+            "file": "packages/infra/src/constructs/image-frame-function.ts",
+            "hash": "1606312683991763662"
+          },
+          {
+            "file": "packages/infra/src/constructs/index-subtitle-function.ts",
+            "hash": "9399888257652383270"
+          },
+          {
+            "file": "packages/infra/src/constructs/media-dynamodb.ts",
+            "hash": "12316621402412604714"
+          },
+          {
+            "file": "packages/infra/src/constructs/media-storage.ts",
+            "hash": "12549927803270036531"
+          },
+          {
+            "file": "packages/infra/src/constructs/media-vpc.ts",
+            "hash": "4252168126885629272"
+          },
+          {
+            "file": "packages/infra/src/constructs/rust-lambda-function.ts",
+            "hash": "3859396608716635103"
+          },
+          {
+            "file": "packages/infra/src/constructs/search-subtitle-function.ts",
+            "hash": "15015094957627913468"
+          },
+          {
+            "file": "packages/infra/src/constructs/subtitle-function.ts",
+            "hash": "4803141422455343875"
+          },
+          {
+            "file": "packages/infra/src/constructs/subtitle-job-queue.ts",
+            "hash": "106822304057599922"
+          },
+          {
+            "file": "packages/infra/src/constructs/tantivy-index-storage.ts",
+            "hash": "13541096398703167756"
+          },
+          {
+            "file": "packages/infra/src/constructs/transcribe-function.ts",
+            "hash": "3890079188288145985"
+          },
+          {
+            "file": "packages/infra/src/constructs/transcribe-post-process-function.ts",
+            "hash": "18214559441474234387"
+          },
+          {
+            "file": "packages/infra/src/pipeline-stack.ts",
+            "hash": "14221957729494519100",
+            "dependencies": [
+              {
+                "source": "infra",
+                "target": "npm:aws-prototyping-sdk",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/infra/src/pipeline.ts",
+            "hash": "12030036824880366455"
+          },
+          {
+            "file": "packages/infra/test/__snapshots__/pipeline.test.ts.snap",
+            "hash": "9712750655084021456"
+          },
+          {
+            "file": "packages/infra/test/pipeline.test.ts",
+            "hash": "7926243444303223398"
+          },
+          {
+            "file": "packages/infra/tsconfig.dev.json",
+            "hash": "11320293023205670128"
+          },
+          {
+            "file": "packages/infra/tsconfig.json",
+            "hash": "4666529267362284065"
+          }
+        ]
+      }
+    },
+    "app": {
+      "name": "app",
+      "type": "lib",
+      "data": {
+        "root": "packages/app",
+        "sourceRoot": "packages/app",
+        "projectType": "library",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build",
+              {
+                "target": "build",
+                "projects": "dependencies"
+              }
+            ],
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "configurations": {}
+          },
+          "package": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "package"
+            }
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            }
+          },
+          "post-compile": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "post-compile"
+            }
+          },
+          "compile": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "compile"
+            }
+          },
+          "pre-compile": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "pre-compile"
+            }
+          },
+          "eject": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "eject"
+            }
+          },
+          "default": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "default"
+            }
+          }
+        },
+        "implicitDependencies": [],
+        "tags": [],
+        "files": [
+          {
+            "file": "packages/app/.gitignore",
+            "hash": "3929391232324286244"
+          },
+          {
+            "file": "packages/app/.projen/files.json",
+            "hash": "12388822972463615085"
+          },
+          {
+            "file": "packages/app/.projen/tasks.json",
+            "hash": "6601169992526420022"
+          },
+          {
+            "file": "packages/app/Cargo.lock",
+            "hash": "12237021538051376268"
+          },
+          {
+            "file": "packages/app/Cargo.toml",
+            "hash": "17077192622890963829"
+          },
+          {
+            "file": "packages/app/Makefile",
+            "hash": "61267080932989177"
+          },
+          {
+            "file": "packages/app/package.json",
+            "hash": "1559983362762904575"
+          },
+          {
+            "file": "packages/app/README.md",
+            "hash": "3639080716959242580"
+          },
+          {
+            "file": "packages/app/src/askama_filters.rs",
+            "hash": "4930756436273936723"
+          },
+          {
+            "file": "packages/app/src/handlers/api_request_subtitle.rs",
+            "hash": "14529694990474161892"
+          },
+          {
+            "file": "packages/app/src/handlers/api_video_search.rs",
+            "hash": "16461030831697284497"
+          },
+          {
+            "file": "packages/app/src/handlers/index.rs",
+            "hash": "3411707905755256098"
+          },
+          {
+            "file": "packages/app/src/handlers/mod.rs",
+            "hash": "14032854459257025076"
+          },
+          {
+            "file": "packages/app/src/handlers/video_detail.rs",
+            "hash": "15115117793278510948"
+          },
+          {
+            "file": "packages/app/src/main.rs",
+            "hash": "8914105634133080472"
+          },
+          {
+            "file": "packages/app/src/store.rs",
+            "hash": "16324456854166111273"
+          },
+          {
+            "file": "packages/app/templates/base.html",
+            "hash": "8871040728196509145"
+          },
+          {
+            "file": "packages/app/templates/index.html",
+            "hash": "14403690843160605807"
+          },
+          {
+            "file": "packages/app/templates/nav.html",
+            "hash": "14559062116327473559"
+          },
+          {
+            "file": "packages/app/templates/video-detail.html",
+            "hash": "810941971262967030"
+          }
+        ]
+      }
+    }
+  },
+  "externalNodes": {
+    "npm:aws-cdk-lib": {
+      "type": "npm",
+      "name": "npm:aws-cdk-lib",
+      "data": {
+        "version": "^2.49.0",
+        "packageName": "aws-cdk-lib",
+        "hash": "c290ad28c33b73a8a01aa1771e2aeebe50e14ae8ea2b2033db4cc69c385dafff"
+      }
+    },
+    "npm:cdk-nag": {
+      "type": "npm",
+      "name": "npm:cdk-nag",
+      "data": {
+        "version": "^2.19.8",
+        "packageName": "cdk-nag",
+        "hash": "143215ed18995b6f3416bc4569dc2975fe4faf9bcc0a0fa73c83de90d5d54f8f"
+      }
+    },
+    "npm:constructs": {
+      "type": "npm",
+      "name": "npm:constructs",
+      "data": {
+        "version": "^10.1.145",
+        "packageName": "constructs",
+        "hash": "6314d3b2a5bc35a3bd74154d5d8c0330e18064df986a10f85588d39ef8065ade"
+      }
+    },
+    "npm:@nrwl/cli": {
+      "type": "npm",
+      "name": "npm:@nrwl/cli",
+      "data": {
+        "version": "^15.8.5",
+        "packageName": "@nrwl/cli",
+        "hash": "b6719f1fc483df50a1c88772f5edd8dbd822295e5b887f67a240a2763be9698a"
+      }
+    },
+    "npm:@nrwl/workspace": {
+      "type": "npm",
+      "name": "npm:@nrwl/workspace",
+      "data": {
+        "version": "^15.8.5",
+        "packageName": "@nrwl/workspace",
+        "hash": "02b4171a942322d6a6af051ea6c1c5e5b8f4530dc7c8da997629c12623a2665a"
+      }
+    },
+    "npm:@types/node": {
+      "type": "npm",
+      "name": "npm:@types/node",
+      "data": {
+        "version": "^14",
+        "packageName": "@types/node",
+        "hash": "8f37c69116a78b5089bbad630a64488a60834e46c7fe7bf07e52ea91bd07327f"
+      }
+    },
+    "npm:@typescript-eslint/eslint-plugin": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/eslint-plugin",
+      "data": {
+        "version": "^5.54.0",
+        "packageName": "@typescript-eslint/eslint-plugin",
+        "hash": "9d866784904b8a5f468601b92aaa85c9f70a762efbf33b5459ed5c9f08619aaf"
+      }
+    },
+    "npm:@typescript-eslint/parser": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/parser",
+      "data": {
+        "version": "^5.54.0",
+        "packageName": "@typescript-eslint/parser",
+        "hash": "b7877d14fd107cc0da3e873b9b85057860bb4ffbd727a0206e7ec85950aafaaf"
+      }
+    },
+    "npm:aws-prototyping-sdk": {
+      "type": "npm",
+      "name": "npm:aws-prototyping-sdk",
+      "data": {
+        "version": "^0.12.4",
+        "packageName": "aws-prototyping-sdk",
+        "hash": "f2e2f79b42029103e59819acdb07fff0dfeb814978b9e76aa788aa8018f9a385"
+      }
+    },
+    "npm:eslint": {
+      "type": "npm",
+      "name": "npm:eslint",
+      "data": {
+        "version": "^8.35.0",
+        "packageName": "eslint",
+        "hash": "9ec1e3a72df090800921f20664338333166dc9a9769922858f289ca8deb30e72"
+      }
+    },
+    "npm:eslint-config-prettier": {
+      "type": "npm",
+      "name": "npm:eslint-config-prettier",
+      "data": {
+        "version": "^8.6.0",
+        "packageName": "eslint-config-prettier",
+        "hash": "980373c3cf43b897e51308297496850d7589d8a514a67082802124a79b407cb4"
+      }
+    },
+    "npm:eslint-import-resolver-node": {
+      "type": "npm",
+      "name": "npm:eslint-import-resolver-node",
+      "data": {
+        "version": "^0.3.7",
+        "packageName": "eslint-import-resolver-node",
+        "hash": "5df1a3370c334d7a6abe82552909d3be57452376deb42ad36038a2bbd34309e4"
+      }
+    },
+    "npm:eslint-import-resolver-typescript": {
+      "type": "npm",
+      "name": "npm:eslint-import-resolver-typescript",
+      "data": {
+        "version": "^3.5.3",
+        "packageName": "eslint-import-resolver-typescript",
+        "hash": "3071402859919e048c8123812f7f5ed2d2cc9332ce7b8ce13a1067b60da914a4"
+      }
+    },
+    "npm:eslint-plugin-import": {
+      "type": "npm",
+      "name": "npm:eslint-plugin-import",
+      "data": {
+        "version": "^2.27.5",
+        "packageName": "eslint-plugin-import",
+        "hash": "5caba9146a92cf9053c1e5123337ee99d26128ea85066c87e85343309b405255"
+      }
+    },
+    "npm:eslint-plugin-prettier": {
+      "type": "npm",
+      "name": "npm:eslint-plugin-prettier",
+      "data": {
+        "version": "^4.2.1",
+        "packageName": "eslint-plugin-prettier",
+        "hash": "f418727a146363e82c4802692cb967ca4ddaf6e48b5b6f41a68bc1827aa54d09"
+      }
+    },
+    "npm:json-schema": {
+      "type": "npm",
+      "name": "npm:json-schema",
+      "data": {
+        "version": "^0.4.0",
+        "packageName": "json-schema",
+        "hash": "2c446bb59805c0dc5a3914dd731c64d6514dd02ea4de42cf54602f03de7e4a7f"
+      }
+    },
+    "npm:npm-check-updates": {
+      "type": "npm",
+      "name": "npm:npm-check-updates",
+      "data": {
+        "version": "^16.7.10",
+        "packageName": "npm-check-updates",
+        "hash": "3fe128cc2b238a034a0e066c6caece593abc11efc6bf6f8ad9851410bea2540f"
+      }
+    },
+    "npm:prettier": {
+      "type": "npm",
+      "name": "npm:prettier",
+      "data": {
+        "version": "^2.8.4",
+        "packageName": "prettier",
+        "hash": "aa9b2c435acf71a0c9eca3b9799845cea5f68b3e97c1deb00cd1ea36bb6a70aa"
+      }
+    },
+    "npm:projen": {
+      "type": "npm",
+      "name": "npm:projen",
+      "data": {
+        "version": "^0.65.6",
+        "packageName": "projen",
+        "hash": "ceab52594e8ad494633d7dbe3f34f4125fa197ad7e85e284dba5e79ac02fea45"
+      }
+    },
+    "npm:syncpack": {
+      "type": "npm",
+      "name": "npm:syncpack",
+      "data": {
+        "version": "^9.8.4",
+        "packageName": "syncpack",
+        "hash": "9bd4a24b98db845c35bcef4aa8860c490ec51f8da5641abd651aa3be723c3bae"
+      }
+    },
+    "npm:ts-node": {
+      "type": "npm",
+      "name": "npm:ts-node",
+      "data": {
+        "version": "^10.9.1",
+        "packageName": "ts-node",
+        "hash": "2de038a62faed11c2bb07dc6a9d7bc5d17c4e997ef162bc294869337872e339c"
+      }
+    },
+    "npm:typescript": {
+      "type": "npm",
+      "name": "npm:typescript",
+      "data": {
+        "version": "^4.9.5",
+        "packageName": "typescript",
+        "hash": "70cf9f9ed93f6f6c9ea7d639713e7c7ebe2b3f7eec7b338d5e27d6deb5ac0a72"
+      }
+    }
+  },
+  "dependencies": {
+    "lambda": [],
+    "infra": [
+      {
+        "source": "infra",
+        "target": "lambda",
+        "type": "implicit"
+      },
+      {
+        "source": "infra",
+        "target": "app",
+        "type": "implicit"
+      },
+      {
+        "source": "infra",
+        "target": "npm:aws-cdk-lib",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:aws-prototyping-sdk",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:cdk-nag",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:constructs",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:@types/node",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:@typescript-eslint/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:eslint",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:eslint-config-prettier",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:eslint-import-resolver-node",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:eslint-import-resolver-typescript",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:eslint-plugin-import",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:eslint-plugin-prettier",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:json-schema",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:npm-check-updates",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:prettier",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:projen",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:ts-node",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:typescript",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:@aws-cdk/aws-apigatewayv2-alpha",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:@aws-cdk/aws-apigatewayv2-integrations-alpha",
+        "type": "static"
+      },
+      {
+        "source": "infra",
+        "target": "npm:@aws-cdk/aws-cognito-identitypool-alpha",
+        "type": "static"
+      }
+    ],
+    "app": []
+  }
+}

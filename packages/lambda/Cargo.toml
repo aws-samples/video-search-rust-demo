@@ -35,20 +35,20 @@ path = "src/cmd/image_frame.rs"
 [dependencies]
 serde = "1"
 serde_json = "1"
-tokio = { version = "1", features = ["full"] }
+tokio = { version = "1.26", features = ["full"] }
 anyhow = "1"
 itertools = "0.10"
 lambda_runtime = "0.7"
 aws_lambda_events = "0.7"
-aws-config = "0.51"
-aws-sdk-s3 = "0.21"
-aws-sdk-lambda = "0.21"
-aws-sdk-transcribe = "0.21"
-aws-sdk-translate = "0.21"
-aws-sdk-dynamodb = "0.21"
-aws-sdk-sqs = "0.21"
-aws-sdk-sns = "0.21"
-serde_dynamo = { version = "4", features = ["aws-sdk-dynamodb+0_21"] }
+aws-config = "0.54"
+aws-sdk-s3 = "0.24"
+aws-sdk-lambda = "0.24"
+aws-sdk-transcribe = "0.24"
+aws-sdk-translate = "0.24"
+aws-sdk-dynamodb = "0.24"
+aws-sdk-sqs = "0.24"
+aws-sdk-sns = "0.24"
+serde_dynamo = { version = "4", features = ["aws-sdk-dynamodb+0_24"] }
 chrono = "0.4"
 uuid = { version = "1", features = ["serde", "v4"] }
 dotenv = "0.15"

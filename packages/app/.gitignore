@@ -6,4 +6,4 @@ node_modules/
 !/.projen/files.json
 target
 .dist
-!/package.json
+!/project.json

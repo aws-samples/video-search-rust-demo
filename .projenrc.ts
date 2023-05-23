@@ -1,8 +1,8 @@
-import { nx_monorepo } from "aws-prototyping-sdk";
-import { PDKPipelineTsProject } from "aws-prototyping-sdk/pipeline";
+import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
+import { PDKPipelineTsProject } from "@aws-prototyping-sdk/pipeline";
 import { Project } from "projen";
 
-const project = new nx_monorepo.NxMonorepoProject({
+const project = new NxMonorepoProject({
   defaultReleaseBranch: "main",
   devDeps: ["aws-prototyping-sdk"],
   name: "video-search",

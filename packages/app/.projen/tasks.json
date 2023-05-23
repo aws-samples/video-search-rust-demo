@@ -29,18 +29,6 @@
       "name": "default",
       "description": "Synthesize project files"
     },
-    "eject": {
-      "name": "eject",
-      "description": "Remove projen from the project",
-      "env": {
-        "PROJEN_EJECTING": "true"
-      },
-      "steps": [
-        {
-          "spawn": "default"
-        }
-      ]
-    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package",

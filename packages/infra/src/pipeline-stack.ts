@@ -16,13 +16,13 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import { PDKPipeline } from "@aws-prototyping-sdk/pipeline";
 import { Stack, StackProps } from "aws-cdk-lib";
 import {
   BuildSpec,
   ComputeType,
   LinuxBuildImage,
 } from "aws-cdk-lib/aws-codebuild";
-import { PDKPipeline } from "aws-prototyping-sdk/pipeline";
 import { Construct } from "constructs";
 
 export class PipelineStack extends Stack {

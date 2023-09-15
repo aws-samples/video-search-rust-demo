@@ -1,5 +1,5 @@
 {
-  "name": "video-search",
+  "name": "@aws-samples/video-search-rust-demo",
   "description": "This repo is a sample video search app using AWS services.",
   "scripts": {
     "build": "npx projen build",

@@ -414,7 +414,7 @@
           },
           {
             "file": "packages/infra/package.json",
-            "hash": "15778287501462293076"
+            "hash": "10738541196885653270"
           },
           {
             "file": "packages/infra/project.json",
@@ -423,14 +423,6 @@
           {
             "file": "packages/infra/README.md",
             "hash": "5136528320838918118"
-          },
-          {
-            "file": "packages/infra/src/application-stack.ts",
-            "hash": "9096136684155130637"
-          },
-          {
-            "file": "packages/infra/src/application-stage.ts",
-            "hash": "3426348415864269842"
           },
           {
             "file": "packages/infra/src/constructs/app-api-gateway.ts",
@@ -458,11 +450,11 @@
           },
           {
             "file": "packages/infra/src/constructs/media-storage.ts",
-            "hash": "12549927803270036531"
+            "hash": "771365078051920953"
           },
           {
             "file": "packages/infra/src/constructs/media-vpc.ts",
-            "hash": "4252168126885629272"
+            "hash": "14853238528463218045"
           },
           {
             "file": "packages/infra/src/constructs/rust-lambda-function.ts",
@@ -494,19 +486,23 @@
           },
           {
             "file": "packages/infra/src/main.ts",
-            "hash": "16812269238648834170"
-          },
-          {
-            "file": "packages/infra/src/pipeline-stack.ts",
-            "hash": "14300677911182355478"
-          },
-          {
-            "file": "packages/infra/src/pipeline.ts",
-            "hash": "12030036824880366455"
+            "hash": "2116011346821167501"
           },
           {
             "file": "packages/infra/src/stacks/application-stack.ts",
-            "hash": "13675158748036043722"
+            "hash": "10521052111779952577"
+          },
+          {
+            "file": "packages/infra/src/stacks/application-stage.ts",
+            "hash": "3426348415864269842"
+          },
+          {
+            "file": "packages/infra/src/stacks/pipeline-stack.ts",
+            "hash": "3919417328283222581"
+          },
+          {
+            "file": "packages/infra/src/stacks/pipeline.ts",
+            "hash": "12030036824880366455"
           },
           {
             "file": "packages/infra/test/__snapshots__/pipeline.test.ts.snap",

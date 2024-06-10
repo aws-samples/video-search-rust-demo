@@ -32,6 +32,7 @@ import {
   Bucket,
   BucketEncryption,
 } from "aws-cdk-lib/aws-s3";
+import { NagSuppressions } from "cdk-nag";
 import { Construct } from "constructs";
 
 export class MediaStorage extends Construct {
@@ -75,5 +76,17 @@ export class MediaStorage extends Construct {
         cachedMethods: CachedMethods.CACHE_GET_HEAD_OPTIONS,
       },
     });
+
+    // TODO: configure geographic restrictions 
+    NagSuppressions.addResourceSuppressions(
+      this.distribution,
+      [
+        {
+          id: "AwsPrototyping-CloudFrontDistributionGeoRestrictions",
+          reason: "This is demo app, so don't configure geographic restrictions",
+        },
+      ],
+      true
+    );
   }
 }

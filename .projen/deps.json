@@ -1,6 +1,11 @@
 {
   "dependencies": [
     {
+      "name": "@aws/pdk",
+      "version": "^0",
+      "type": "build"
+    },
+    {
       "name": "@types/node",
       "version": "^16",
       "type": "build"
@@ -13,10 +18,6 @@
     {
       "name": "@typescript-eslint/parser",
       "version": "^5",
-      "type": "build"
-    },
-    {
-      "name": "aws-prototyping-sdk",
       "type": "build"
     },
     {
@@ -59,10 +60,12 @@
     },
     {
       "name": "projen",
+      "version": "^0.79.24",
       "type": "build"
     },
     {
       "name": "syncpack",
+      "version": "^12",
       "type": "build"
     },
     {
@@ -94,15 +97,16 @@
       "type": "peer"
     },
     {
+      "name": "@aws-cdk/aws-cognito-identitypool-alpha",
+      "version": "latest",
+      "type": "runtime"
+    },
+    {
       "name": "aws-cdk-lib",
       "type": "runtime"
     },
     {
       "name": "cdk-nag",
-      "type": "runtime"
-    },
-    {
-      "name": "constructs",
       "type": "runtime"
     }
   ],

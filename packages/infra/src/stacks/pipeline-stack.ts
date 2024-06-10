@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { PDKPipeline } from "@aws-prototyping-sdk/pipeline";
+import { PDKPipeline } from "@aws/pdk/pipeline";
 import { Stack, StackProps } from "aws-cdk-lib";
 import {
   BuildSpec,

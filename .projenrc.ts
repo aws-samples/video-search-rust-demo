@@ -1,10 +1,9 @@
-import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
-import { PDKPipelineTsProject } from "@aws-prototyping-sdk/pipeline";
+import { MonorepoTsProject } from "@aws/pdk/monorepo";
+import { InfrastructureTsProject } from "@aws/pdk/infrastructure";
 import { Project } from "projen";
 
-const project = new NxMonorepoProject({
+const project = new MonorepoTsProject({
   defaultReleaseBranch: "main",
-  devDeps: ["aws-prototyping-sdk"],
   name: "video-search",
   description: "This repo is a sample video search app using AWS services.",
   deps: [],
@@ -18,7 +17,7 @@ const project = new NxMonorepoProject({
 });
 project.addGitIgnore(".idea");
 
-const pipelineProject = new PDKPipelineTsProject({
+const pipelineProject = new InfrastructureTsProject({
   parent: project,
   outdir: "packages/infra",
   defaultReleaseBranch: "main",

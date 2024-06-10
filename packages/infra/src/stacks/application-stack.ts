@@ -19,19 +19,19 @@
 import { Stack, StackProps } from "aws-cdk-lib";
 import { Topic } from "aws-cdk-lib/aws-sns";
 import { Construct } from "constructs";
-import { AppApiGateway } from "./constructs/app-api-gateway";
-import { AppFunction } from "./constructs/app-function";
-import { ImageFrameFunction } from "./constructs/image-frame-function";
-import { IndexSubtitleFunction } from "./constructs/index-subtitle-function";
-import { MediaDynamodb } from "./constructs/media-dynamodb";
-import { MediaStorage } from "./constructs/media-storage";
-import { MediaVpc } from "./constructs/media-vpc";
-import { SearchSubtitleFunction } from "./constructs/search-subtitle-function";
-import { SubtitleFunction } from "./constructs/subtitle-function";
-import { SubtitleJobQueue } from "./constructs/subtitle-job-queue";
-import { TantivyIndexStorage } from "./constructs/tantivy-index-storage";
-import { TranscribeFunction } from "./constructs/transcribe-function";
-import { TranscribePostProcessFunction } from "./constructs/transcribe-post-process-function";
+import { AppApiGateway } from "../constructs/app-api-gateway";
+import { AppFunction } from "../constructs/app-function";
+import { ImageFrameFunction } from "../constructs/image-frame-function";
+import { IndexSubtitleFunction } from "../constructs/index-subtitle-function";
+import { MediaDynamodb } from "../constructs/media-dynamodb";
+import { MediaStorage } from "../constructs/media-storage";
+import { MediaVpc } from "../constructs/media-vpc";
+import { SearchSubtitleFunction } from "../constructs/search-subtitle-function";
+import { SubtitleFunction } from "../constructs/subtitle-function";
+import { SubtitleJobQueue } from "../constructs/subtitle-job-queue";
+import { TantivyIndexStorage } from "../constructs/tantivy-index-storage";
+import { TranscribeFunction } from "../constructs/transcribe-function";
+import { TranscribePostProcessFunction } from "../constructs/transcribe-post-process-function";
 
 export class ApplicationStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {

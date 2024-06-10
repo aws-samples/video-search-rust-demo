@@ -134,6 +134,13 @@
         "command": "yarn projen bundle",
         "cwd": "packages/infra"
       }
+    },
+    "deploy:dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn projen deploy:dev",
+        "cwd": "packages/infra"
+      }
     }
   },
   "implicitDependencies": [

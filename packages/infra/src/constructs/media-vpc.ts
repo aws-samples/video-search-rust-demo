@@ -20,6 +20,7 @@ import { RemovalPolicy } from "aws-cdk-lib";
 import {
   FlowLogDestination,
   FlowLogTrafficType,
+  GatewayVpcEndpointAwsService,
   SubnetType,
   Vpc,
 } from "aws-cdk-lib/aws-ec2";
@@ -50,6 +51,7 @@ export class MediaVpc extends Construct {
           cidrMask: 24,
           name: "ingress",
           subnetType: SubnetType.PUBLIC,
+          mapPublicIpOnLaunch: false,
         },
       ],
       flowLogs: {
@@ -58,6 +60,10 @@ export class MediaVpc extends Construct {
           trafficType: FlowLogTrafficType.ALL,
         },
       },
+    });
+
+    this.vpc.addGatewayEndpoint("S3VpcE", {
+      service: GatewayVpcEndpointAwsService.S3,
     });
   }
 }

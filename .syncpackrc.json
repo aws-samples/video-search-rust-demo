@@ -1,16 +1,20 @@
 {
-  "dependencyTypes": [],
-  "dev": true,
   "filter": ".",
   "indent": "  ",
-  "overrides": true,
-  "peer": true,
-  "pnpmOverrides": true,
-  "prod": true,
-  "resolutions": true,
-  "workspace": true,
-  "semverGroups": [],
-  "semverRange": "",
+  "semverGroups": [
+    {
+      "dependencies": [
+        "**"
+      ],
+      "dependencyTypes": [
+        "**"
+      ],
+      "packages": [
+        "**"
+      ],
+      "range": ""
+    }
+  ],
   "sortAz": [
     "contributors",
     "dependencies",

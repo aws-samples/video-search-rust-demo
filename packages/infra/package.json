@@ -50,7 +50,7 @@
     "@aws-cdk/aws-cognito-identitypool-alpha": "^2.78.0-alpha.0",
     "@aws-prototyping-sdk/identity": "^0.18.18",
     "@aws/pdk": "^0.23.40",
-    "aws-cdk-lib": "^2.1.0",
+    "aws-cdk-lib": "^2.177.0",
     "cdk-nag": "^2.26.15",
     "constructs": "^10.0.5"
   },
